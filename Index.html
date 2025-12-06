@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags Essenciais -->
+    <title>Analisador de Renda Pro - Beta Gratuito</title>
+    <meta name="description" content="Sistema profissional de análise de extratos bancários com Inteligência Artificial. Processa Uber, 99, iFood, Rappi e bancos em 2 minutos. Teste grátis por 30 dias!">
+    
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:title" content="Analisador de Renda Pro - Beta Gratuito">
+    <meta property="og:description" content="Análise de Extratos Bancários com IA em 2 minutos. Teste grátis por 30 dias!">
+    <meta property="og:image" content="https://imgur.com/a/2Kv5Flk">
+    <meta property="og:url" content="https://bit.ly/analisadorrenda">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Analisador de Renda Pro">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Analisador de Renda Pro">
+    <meta name="twitter:description" content="Análise de Extratos com IA em 2 minutos">
+    <meta name="twitter:image" content="https://imgur.com/a/2Kv5Flk">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 80px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .icon {
+            font-size: 120px;
+            margin-bottom: 30px;
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 15px;
+            font-weight: 300;
+            text-shadow: 0 3px 15px rgba(0,0,0,0.2);
+        }
+        
+        .beta-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 60px 20px;
+            margin: 0 20px;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            max-width: 800px;
+            margin: 50px auto;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            padding: 50px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 15px 35px rgba(17, 153, 142, 0.4);
+        }
+        
+        .benefits h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 3px 15px rgba(0,0,0,0.2);
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .benefits-list li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px 60px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 15px 35px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(245, 87, 108, 0.6);
+        }
+        
+        .cta-info {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .password-box {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .password-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .password-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #764ba2;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 3px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .icon {
+                font-size: 80px;
+            }
+            
+            .features {
+                margin: 0 10px;
+                padding: 40px 15px;
+            }
+            
+            .benefits {
+                padding: 30px 20px;
+            }
+            
+            .benefits h2 {
+                font-size: 2rem;
+            }
+            
+            .benefits-list li {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 20px 40px;
+                font-size: 1.2rem;
+            }
+            
+            .password-value {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="icon">💰</div>
+            <h1>Analisador de Renda Pro</h1>
+            <p class="subtitle">Análise de Extratos com IA</p>
+            <p class="subtitle" style="font-size: 1.3rem;">em 2 minutos</p>
+            <div class="beta-badge">✨ VERSÃO BETA GRATUITA</div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2 style="font-size: 2.5rem; color: #2d3748; text-align: center; margin-bottom: 20px;">
+                Como Funciona?
+            </h2>
+            <p style="text-align: center; color: #666; font-size: 1.2rem; margin-bottom: 50px;">
+                Sistema profissional de análise automatizada
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <div class="feature-title">Upload do Extrato</div>
+                    <div class="feature-desc">
+                        Envie PDF ou foto do extrato bancário ou de apps
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">IA Analisa Tudo</div>
+                    <div class="feature-desc">
+                        Claude Sonnet 4 processa e identifica todas as entradas
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Relatório Excel</div>
+                    <div class="feature-desc">
+                        Recebe Excel profissional pronto em 2 minutos
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits -->
+            <div class="benefits">
+                <h2>🎁 Acesso Beta Inclui:</h2>
+                <ul class="benefits-list">
+                    <li><strong>Teste gratuito por 30 dias</strong></li>
+                    <li><strong>2 consultas por dia</strong></li>
+                    <li><strong>Suporte 15 tipos de fontes:</strong> Uber, 99, iFood, Rappi, Caixa, BB, Itaú, Nubank, Inter, Digio, PicPay e mais</li>
+                    <li><strong>Dashboard visual</strong> com gráficos interativos</li>
+                    <li><strong>Suporte direto</strong> com o desenvolvedor</li>
+                    <li><strong>Influencie o desenvolvimento</strong> do produto</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta">
+                <a href="https://analisador-renda-v33.onrender.com" class="cta-button">
+                    🚀 ACESSAR BETA GRATUITO
+                </a>
+                
+                <div class="password-box">
+                    <div class="password-label">🔑 Senha de Acesso:</div>
+                    <div class="password-value">beta2025</div>
+                </div>
+                
+                <p class="cta-info" style="margin-top: 30px; font-size: 0.9rem; color: #666;">
+                    ⏰ Beta válido até <strong>05 de Janeiro de 2026</strong><br>
+                    📊 Apenas <strong>30 vagas disponíveis</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">By Magalhães Negócios</div>
+        <p class="footer-text">Analisador de Renda Pro V3.5 | Sistema Beta</p>
+        <p class="footer-text">Desenvolvido com ❤️ usando Streamlit + Claude Sonnet 4</p>
+        <p class="footer-text" style="margin-top: 20px; font-size: 0.9rem;">
+            © 2025 Magalhães Negócios. Todos os direitos reservados.
+        </p>
+    </footer>
+</body>
+</html>
